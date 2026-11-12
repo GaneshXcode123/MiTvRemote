@@ -152,7 +152,8 @@ class RemoteViewModel(private val app: Application) : AndroidViewModel(app) {
                 _ui.update {
                     it.copy(
                         pairStage = PairStage.FAILED,
-                        message = "Pairing failed: ${e.message ?: e.javaClass.simpleName}",
+                        message = "Pairing error [${e.javaClass.simpleName}]: " +
+    "${e.message ?: "No details"}",
                     )
                 }
             }
